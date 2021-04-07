@@ -42,6 +42,7 @@ public class numbers_sign {
                     if ((first.equals("I")) | (first.equals("V")) | (first.equals("X"))) {
                         flag11 += 1;
 
+
                     }
                 }
 
