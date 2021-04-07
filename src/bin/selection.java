@@ -32,6 +32,7 @@ public class selection {
 
             }
         }
+        if (romes1 > 10 | romes2 > 10){System.out.println("Калькулятор не умеет обрабатывать такие числа, только диапазон от 1 до 10 или от I до X"); System.exit(0); }
         if (((flags > 0) & (flag1 == 0)) | ((flags == 0) & (flag1 > 0))) {
 
             System.out.println("Вынужден сообщить, что этот калькулятор не умеет считать одновременно арабские и римские цифры");
@@ -41,15 +42,14 @@ public class selection {
             arabs1 = Integer.parseInt(numsel1);
             arabs2 = Integer.parseInt(numsel2);
 
-        }
-
+        } else if (arabs1 == 0 | arabs2 == 0){ };
 
     }
 
     public void operation_arab() {
 
 
-        if ( arabs1 > 0  &  arabs1 <= 10  &  arabs2>0  &  arabs2 <= 10 ) {
+        if ( (arabs1 > 0  &  arabs1 < 11)  &  (arabs2>0  &  arabs2 < 11)) {
 
 
             switch (znach) {
@@ -69,14 +69,15 @@ public class selection {
                     System.out.println(arabs1 * arabs2);
                     break;
             }
-        } else {System.out.println("Калькулятор не умеет обрабатывать такие числа, только диапазон от 1 до 10 или от I до X"); System.exit(0);}
-        System.exit(0);
+        } else if (arabs2 == 0 & arabs1 == 0) {}
+        else if (arabs2 > 10 | arabs2 > 0){System.out.println("!!!!!Калькулятор не умеет обрабатывать такие числа, только диапазон от 1 до 10 или от I до X"); System.exit(0);}
+
     }
 
     public void operation_rome() {
 
 
-        if (romes1 > 0 & romes1 <= 10 & romes2 >0 & romes2 <=10) {
+        if ((romes1 > 0 & romes1 < 11) & (romes2 >0 & romes2 < 11)) {
 
 
             switch (znach) {
@@ -98,9 +99,9 @@ public class selection {
                     break;
             }
 
-        } else {System.out.println("Калькулятор не умеет обрабатывать такие числа, только диапазон от 1 до 10 или от I до X"); System.exit(0);}
+        } else if (arabs1 == 0 & arabs2 == 0){System.out.println("Калькулятор не умеет обрабатывать такие числа, только диапазон от 1 до 10 или от I до X"); System.exit(0);}
 
-        if ((rome_answer > 10) & (rome_answer < 100)) {
+        if ((rome_answer >= 10) & (rome_answer < 100)) {
 
             RomanNumberTranslator romen = new RomanNumberTranslator();
             romen.answer_to_translate = rome_answer;
@@ -108,7 +109,7 @@ public class selection {
             romen.Translator();
 
         } else if ( rome_answer == 100){System.out.println("C"); }
-        else { System.out.println(nums[rome_answer - 1]); }
+        else if (arabs1 == 0 & arabs2 == 0) { System.out.println(nums[rome_answer - 1]); }
 
     }
 
